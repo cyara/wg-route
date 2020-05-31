@@ -1,0 +1,11 @@
+[Unit]
+Description=Synchronize wireguard client routes
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u /srv/wg-route.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

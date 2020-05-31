@@ -1,0 +1,11 @@
+[Unit]
+Description=Wireguard status endpoint
+After=network-online.target wg-route.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u /srv/wg-status.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
